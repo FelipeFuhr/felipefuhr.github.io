@@ -27,10 +27,10 @@ severity    = "info"
 
 # ── Global allowlist ──────────────────────────────────────────────────────────
 #
-# Gitleaks v7 expects a single [allowlist] table (map). The v8 [[allowlist]]
-# multi-table form decodes as "expected a map, got slice" under the
-# currently-installed binary. Merged into one table; per-group reasoning is
-# retained in inline comments.
+# Gitleaks expects a single [allowlist] table (map). The older array-of-tables
+# (double-bracket) form decodes as "expected a map, got slice" under the
+# currently-installed binary, and the CI guard rejects it on sight. Merged into
+# one table; per-group reasoning is retained in inline comments.
 
 [allowlist]
 description = "Global allowlist: placeholders, doc files, lock files, test fixtures, generated code"
