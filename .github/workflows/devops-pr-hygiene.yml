@@ -18,13 +18,13 @@ jobs:
     if: github.event_name == 'pull_request'
     permissions:
       contents: read
-    uses: FelipeFuhr/ffreis-workflows-general/.github/workflows/general-semantic-pr.yml@287f836a726a35af37bd24561fc687f66eaeb92f # v1.7.0
+    uses: FelipeFuhr/ffreis-workflows-general/.github/workflows/general-semantic-pr.yml@df9c480572ce848d6b704dad8ac9a95b09e585ca # v1.7.1
 
   actionlint:
     if: github.event_name == 'pull_request'
     permissions:
       contents: read
-    uses: FelipeFuhr/ffreis-workflows-general/.github/workflows/general-actionlint.yml@287f836a726a35af37bd24561fc687f66eaeb92f # v1.7.0
+    uses: FelipeFuhr/ffreis-workflows-general/.github/workflows/general-actionlint.yml@df9c480572ce848d6b704dad8ac9a95b09e585ca # v1.7.1
     with:
       working-directory: "."
 
@@ -34,7 +34,7 @@ jobs:
       contents: read
       pull-requests: write
       issues: write
-    uses: FelipeFuhr/ffreis-workflows-general/.github/workflows/general-labeler.yml@287f836a726a35af37bd24561fc687f66eaeb92f # v1.7.0
+    uses: FelipeFuhr/ffreis-workflows-general/.github/workflows/general-labeler.yml@df9c480572ce848d6b704dad8ac9a95b09e585ca # v1.7.1
     with:
       rules-json: |-
         [
