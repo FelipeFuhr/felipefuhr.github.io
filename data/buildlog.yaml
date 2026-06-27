@@ -1,0 +1,19 @@
+# Dated build-log entries, newest first. Keep them short.
+buildlog:
+  - date: "2026-06-26"
+    title: "Workshop shell live"
+    body: >-
+      Defined the split — ffreis.com is the front door, this is the visible bench
+      — and shipped it as a governed GitHub Pages repo built by a small Go generator.
+
+  - date: "Next"
+    title: "Wire real repo links + demos"
+    body: >-
+      Point each card at its public repo, add screenshots and a one-line
+      "what I learned" note per project.
+
+  - date: "Later"
+    title: "Grow the patterns shelf"
+    body: >-
+      Turn recurring solutions — async event flows, model packaging, agent
+      workflows — into copyable notes.

@@ -1,0 +1,40 @@
+title: "Felipe's Workshop"
+description: "The workshop behind ffreis.com — experiments, build logs, repos, and reusable ML/AI/web patterns."
+domain: "workshop.ffreis.com"
+url: "https://workshop.ffreis.com"
+author: "Felipe Führ dos Reis"
+og_image: "/assets/favicon.svg"
+
+nav:
+  - { label: "Projects", href: "#projects" }
+  - { label: "Build log", href: "#build-log" }
+  - { label: "Patterns", href: "#patterns" }
+  - { label: "ffreis.com", href: "https://ffreis.com/en/" }
+  - { label: "GitHub", href: "https://github.com/FelipeFuhr" }
+
+hero:
+  eyebrow: "GitHub Pages companion to ffreis.com"
+  heading: "Raw notes, experiments, repos, and useful software."
+  lead: >-
+    This is the workshop layer behind my polished personal site: a public bench
+    for ML systems, AI engineering, MLOps patterns, small web apps, and build
+    logs. Polished work lives at ffreis.com — the sketches live here.
+  actions:
+    - { label: "Browse experiments", href: "#projects", primary: true }
+    - { label: "Visit personal site", href: "https://ffreis.com/en/" }
+    - { label: "Open GitHub", href: "https://github.com/FelipeFuhr" }
+  terminal:
+    - { kind: "prompt", text: "$ whoami" }
+    - { kind: "out", text: "Felipe Führ dos Reis" }
+    - { kind: "comment", text: "# ML engineer · AI systems builder · indie web/app maker" }
+    - { kind: "prompt", text: "$ current_focus" }
+    - { kind: "accent", text: "production-ml / llm-systems / web-first-products / reusable-components" }
+    - { kind: "prompt", text: "$ workshop_rule" }
+    - { kind: "out", text: "HTML + CSS first. Add JavaScript only when interaction earns it." }
+
+filters:
+  - { key: "all", label: "All" }
+  - { key: "ml", label: "ML/AI" }
+  - { key: "web", label: "Web" }
+  - { key: "infra", label: "Infra" }
+  - { key: "tooling", label: "Tooling" }

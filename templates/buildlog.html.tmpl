@@ -1,0 +1,19 @@
+{{define "buildlog" -}}
+<section class="wrap split" id="build-log">
+  <div>
+    <h2>Build log</h2>
+    <p class="lead">Short updates are enough. Progress should be visible without turning every idea into an essay.</p>
+  </div>
+  <div class="log">
+    {{range .BuildLog}}
+    <article class="log-item">
+      <div class="log-date">{{.Date}}</div>
+      <div>
+        <h3>{{.Title}}</h3>
+        <p>{{.Body}}</p>
+      </div>
+    </article>
+    {{end}}
+  </div>
+</section>
+{{- end}}

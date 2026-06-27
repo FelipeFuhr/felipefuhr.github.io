@@ -1,0 +1,27 @@
+# Copyable snippets. `code` is rendered verbatim inside a <pre> with a copy button.
+patterns:
+  - label: "Workshop positioning"
+    code: |
+      ffreis.com is the polished front door.
+      workshop.ffreis.com is the workshop.
+
+      Use the workshop for:
+        - experiments        - demos
+        - build logs         - reusable patterns
+        - repo notes         - unfinished but useful thinking
+
+      Constraint:
+        HTML + CSS first. Add JavaScript only when a real interaction needs it.
+
+  - label: "Edit this site (YAML-only)"
+    code: |
+      # Add a project card: edit data/projects.yaml
+      - group: "ML platform"
+        status: "active"
+        title: "my-new-repo"
+        body: "One honest sentence about what it does and what I learned."
+        kinds: [ml, infra]      # filter keys from data/site.yaml
+        tags: ["Rust", "ONNX"]
+        href: "https://github.com/FelipeFuhr/my-new-repo"   # public repos only
+
+      # Then: make build && make serve

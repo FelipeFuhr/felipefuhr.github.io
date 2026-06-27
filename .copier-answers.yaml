@@ -1,0 +1,7 @@
+# Changes here will be overwritten by Copier; NEVER edit manually.
+# Written to mirror `ws repo new` (the tooling template ships no .copier-answers jinja).
+_src_path: /media/ffreis/second/projects/platform/ffreis-project-templates/templates/tooling
+repo_name: felipefuhr.github.io
+github_org: FelipeFuhr
+description: The workshop behind ffreis.com — experiments, build logs, and reusable patterns.
+has_python: false

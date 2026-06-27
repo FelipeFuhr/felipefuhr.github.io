@@ -1,0 +1,71 @@
+# Hand-curated project/experiment cards. One entry per card.
+#   group:  short category shown top-left
+#   status: one-word state shown top-right (active, pattern, prototype, tooling, research, library)
+#   kinds:  filter keys this card matches — must be from site.yaml `filters` (ml, web, infra, tooling)
+#   href:   OPTIONAL. Only link PUBLIC repos/pages — a link to a private repo 404s for visitors.
+#           Leave empty to render a non-linked card.
+projects:
+  - group: "Static systems"
+    status: "tooling"
+    title: "ffreis-website-compiler"
+    body: >-
+      The Go CLI that builds and validates my whole static site fleet from a
+      YAML site-data contract. This workshop is built by a tiny sibling generator.
+    kinds: [tooling, web, infra]
+    tags: ["Go", "Static sites", "Compiler"]
+    href: ""
+
+  - group: "ML platform"
+    status: "active"
+    title: "ffreis-ml-* platform"
+    body: >-
+      A fleet of composable ML components — explainability, fairness, drift
+      monitoring, continual learning — each its own repo, wired by path sources
+      and exercised through end-to-end example pipelines.
+    kinds: [ml, infra]
+    tags: ["MLOps", "ONNX", "Python"]
+    href: ""
+
+  - group: "Security / crypto"
+    status: "active"
+    title: "ffreis-token-vault"
+    body: >-
+      A Rust library for access and licensing tokens: a crypto SPI over Biscuit,
+      Shamir secret-sharing, and a phase-based entitlements engine behind clean
+      payment/plan/entitlement ports.
+    kinds: [infra, tooling]
+    tags: ["Rust", "Biscuit", "Entitlements"]
+    href: ""
+
+  - group: "Host tooling"
+    status: "tooling"
+    title: "ffreis-buildguard"
+    body: >-
+      A Go CLI that confines heavy Rust/Go/Python builds inside systemd user
+      cgroups so parallel builds can't OOM-freeze a swapless desktop. Born from
+      one too many mid-build lockups.
+    kinds: [tooling, infra]
+    tags: ["Go", "systemd", "cgroups"]
+    href: ""
+
+  - group: "Product lab"
+    status: "prototype"
+    title: "Petlook experiments"
+    body: >-
+      Static-first product UX for a pet app: upload + moderation pipelines,
+      icon generation, wardrobe panels, and a shared Kotlin/Swift mobile contract
+      kept in lockstep by a drift guard.
+    kinds: [web, ml]
+    tags: ["Lambda", "Mobile", "Async"]
+    href: ""
+
+  - group: "Reusable UI"
+    status: "library"
+    title: "Workshop canvas"
+    body: >-
+      This site itself — a single static page generated from hand-curated YAML,
+      HTML + CSS first, with a sprinkle of JS for filtering and copy. A template
+      for the next small thing.
+    kinds: [web, tooling]
+    tags: ["HTML/CSS", "GitHub Pages", "No framework"]
+    href: ""

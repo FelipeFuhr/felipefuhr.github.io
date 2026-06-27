@@ -1,0 +1,27 @@
+{{define "projects" -}}
+<section class="wrap" id="projects">
+  <div class="section-head">
+    <div>
+      <h2>Projects and experiments</h2>
+      <p>Not a second résumé. Polished projects, rough prototypes, and reusable patterns coexist here.</p>
+    </div>
+  </div>
+
+  <div class="filter-row" role="group" aria-label="Project filters">
+    {{range $i, $f := .Site.Filters}}<button class="chip" type="button" aria-pressed="{{if eq $i 0}}true{{else}}false{{end}}" data-filter="{{$f.Key}}">{{$f.Label}}</button>
+    {{end}}
+  </div>
+  <p class="sr-only" id="filter-status" aria-live="polite"></p>
+
+  <div class="grid cards" id="project-grid">
+    {{range .Projects}}
+    <article class="card project-card" data-kind="{{.KindsAttr}}">
+      <div class="project-meta"><span>{{.Group}}</span><span class="status">{{.Status}}</span></div>
+      <h3>{{if .Href}}<a href="{{.Href}}">{{.Title}}</a>{{else}}{{.Title}}{{end}}</h3>
+      <p>{{.Body}}</p>
+      <div class="tag-row">{{range .Tags}}<span class="tag">{{.}}</span>{{end}}</div>
+    </article>
+    {{end}}
+  </div>
+</section>
+{{- end}}

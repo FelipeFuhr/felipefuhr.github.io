@@ -1,0 +1,22 @@
+{{define "hero" -}}
+<section class="hero wrap">
+  <div>
+    <span class="eyebrow">{{.Site.Hero.Eyebrow}}</span>
+    <h1>{{.Site.Hero.Heading}}</h1>
+    <p class="lead">{{.Site.Hero.Lead}}</p>
+    <div class="hero-actions">
+      {{range .Site.Hero.Actions}}<a class="btn{{if .Primary}} primary{{end}}" href="{{.Href}}">{{.Label}}</a>
+      {{end}}
+    </div>
+  </div>
+  <aside class="terminal" aria-label="Workshop status">
+    <div class="terminal-top" aria-hidden="true">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="terminal-body">
+      {{range .Site.Hero.Terminal}}<p class="term-{{.Kind}}">{{.Text}}</p>
+      {{end}}
+    </div>
+  </aside>
+</section>
+{{- end}}

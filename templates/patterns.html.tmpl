@@ -1,0 +1,19 @@
+{{define "patterns" -}}
+<section class="wrap" id="patterns">
+  <div class="section-head">
+    <div>
+      <h2>Reusable patterns</h2>
+      <p>Copyable blocks: conventions, prompts, deploy notes, and architectural templates.</p>
+    </div>
+  </div>
+  {{range $i, $p := .Patterns}}
+  <div class="card pattern">
+    <div class="copy-row">
+      <p class="small">{{$p.Label}}</p>
+      <button class="copy" type="button" data-copy="#snippet-{{$i}}">Copy</button>
+    </div>
+    <pre id="snippet-{{$i}}">{{$p.Code}}</pre>
+  </div>
+  {{end}}
+</section>
+{{- end}}

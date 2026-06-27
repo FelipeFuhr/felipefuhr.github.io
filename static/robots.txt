@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://workshop.ffreis.com/sitemap.xml

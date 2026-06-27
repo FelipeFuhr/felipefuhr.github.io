@@ -1,0 +1,13 @@
+{{define "nav" -}}
+<header>
+  <nav class="wrap" aria-label="Main navigation">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">FF</span>
+      <span>{{.Site.Title}}</span>
+    </a>
+    <div class="nav-links">
+      {{range .Site.Nav}}<a href="{{.Href}}">{{.Label}}</a>{{end}}
+    </div>
+  </nav>
+</header>
+{{- end}}
