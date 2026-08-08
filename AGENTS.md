@@ -23,6 +23,14 @@ at **workshop.ffreis.com** via GitHub Pages.
   builds and publishes on push to `main`. PRs (especially drafts) never deploy.
 - **Coverage floor is 75%** (`COVERAGE_MIN` in the Makefile), matching the fleet Go
   floor — below the go-cli template's stricter 90% because this is a tiny generator.
+- **Mutation testing (`make mutation` / `.github/workflows/mutation.yml`) scopes to
+  `./internal/site/...`** — the tested core — not `cmd/build`, which is a thin CLI
+  wrapper. Runs monthly + on-demand via `workflow_dispatch`, never on every PR.
+- **`lefthook.yml` deliberately does NOT pull the shared `go.yml` remote config.**
+  Adding it would also pull its `complex`/`release` tiers, which require
+  `build-all`/`fuzz`/`quality-gates` Makefile targets this tiny single-binary
+  generator has no real use for. `base.yml` + `actionlint.yml` cover what this repo
+  actually needs; the `mutation` Makefile target was added directly instead.
 
 ## Add a project card
 
@@ -37,6 +45,7 @@ at **workshop.ffreis.com** via GitHub Pages.
 make build            # render dist/
 make serve            # build + serve at http://localhost:8080
 make ci               # fmt-check + lint + coverage-gate + build (the pre-PR gate)
+make mutation         # gremlins mutation testing on internal/site (slow — CI only)
 make lefthook-bootstrap  # install git hooks
 ```
 

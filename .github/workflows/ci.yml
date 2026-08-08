@@ -20,6 +20,19 @@ jobs:
     permissions: { contents: read }
     uses: FelipeFuhr/ffreis-workflows-general/.github/workflows/general-actionlint.yml@df9c480572ce848d6b704dad8ac9a95b09e585ca # v1.7.1
 
+  # Local unit coverage is already enforced directly by `make coverage-gate`
+  # in lint-and-test below (COVERAGE_MIN=75 matches this threshold exactly).
+  # This job adds the fleet-standard integration-coverage metric — a no-op
+  # skip until //go:build integration files exist in this repo.
+  integration-coverage:
+    if: ${{ !github.event.pull_request.draft }}
+    permissions: { contents: read }
+    uses: FelipeFuhr/ffreis-workflows-go/.github/workflows/go-integration-coverage.yml@86fd6e3b73fbe6d4f83280ef2661605d441a20e3 # v1.4.0
+    with:
+      go-version: "1.23"
+      working-directory: "."
+      coverage-threshold: 75
+
   lint-and-test:
     name: lint + test
     runs-on: ubuntu-latest

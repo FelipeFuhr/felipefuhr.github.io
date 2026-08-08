@@ -5,8 +5,10 @@ LEFTHOOK_VERSION ?= 1.7.10
 LEFTHOOK_BIN     ?= $(CURDIR)/.bin/lefthook
 QUALITY_KIT_SCRIPTS ?= /media/ffreis/second/projects/quality-kit/scripts
 COVERAGE_MIN ?= 75
+MUTATION_PACKAGES  ?= ./internal/site/...
+MUTATION_THRESHOLD ?= 60
 
-.PHONY: help ci build serve fmt fmt-check lint vet shellcheck test coverage-gate clean ci-local init-github lefthook-bootstrap
+.PHONY: help ci build serve fmt fmt-check lint vet shellcheck test coverage-gate mutation clean ci-local init-github lefthook-bootstrap
 
 help: ## Show available targets
 	@awk 'BEGIN {FS = ":.*##"} /^[a-zA-Z_-]+:.*##/ {printf "  %-18s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -39,6 +41,10 @@ test: ## go test (race + shuffle) with coverage profile
 
 coverage-gate: test ## Enforce the coverage floor
 	@bash scripts/hooks/check_coverage_gate.sh coverage.out $(COVERAGE_MIN)
+
+mutation: ## Run mutation testing with gremlins on the tested core (slow — CI only)
+	@which gremlins >/dev/null 2>&1 || go install github.com/go-gremlins/gremlins/cmd/gremlins@latest
+	gremlins unleash --threshold-efficacy $(MUTATION_THRESHOLD) $(MUTATION_PACKAGES)
 
 clean: ## Remove build + coverage artifacts
 	rm -rf dist coverage.out

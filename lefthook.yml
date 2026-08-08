@@ -9,4 +9,9 @@ pre-push:
   parallel: false
   commands:
     validate:
-      run: make validate
+      # scan-fix(makefile:missing-target): was `make validate`, which has never
+      # existed in this repo's Makefile (confirmed back to the scaffold commit)
+      # — every pre-push run silently failed with "No rule to make target
+      # 'validate'." `make ci` is the actual full local gate (fmt-check + lint
+      # + coverage-gate + build) and is what this hook was meant to run.
+      run: make ci
