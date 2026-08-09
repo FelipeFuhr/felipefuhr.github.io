@@ -7,8 +7,9 @@ QUALITY_KIT_SCRIPTS ?= /media/ffreis/second/projects/quality-kit/scripts
 COVERAGE_MIN ?= 75
 MUTATION_PACKAGES  ?= ./internal/site/...
 MUTATION_THRESHOLD ?= 60
+GITLEAKS ?= gitleaks
 
-.PHONY: help ci build serve fmt fmt-check lint vet shellcheck test coverage-gate mutation clean ci-local init-github lefthook-bootstrap
+.PHONY: help ci build serve fmt fmt-check lint vet shellcheck test coverage-gate mutation clean ci-local init-github lefthook-bootstrap secrets-scan-staged
 
 help: ## Show available targets
 	@awk 'BEGIN {FS = ":.*##"} /^[a-zA-Z_-]+:.*##/ {printf "  %-18s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -45,6 +46,15 @@ coverage-gate: test ## Enforce the coverage floor
 mutation: ## Run mutation testing with gremlins on the tested core (slow — CI only)
 	@which gremlins >/dev/null 2>&1 || go install github.com/go-gremlins/gremlins/cmd/gremlins@latest
 	gremlins unleash --threshold-efficacy $(MUTATION_THRESHOLD) $(MUTATION_PACKAGES)
+
+# secrets-scan-staged was missing entirely: the shared lefthook `secret-scan`
+# step (pinned to ffreis-platform-standards v1.6.0, which has no gitleaks
+# fallback) runs `make secrets-scan-staged` unconditionally and failed outright
+# on every commit. Every other fleet repo has this target — added to match
+# convention (see e.g. ffreis-website-inventory/Makefile).
+secrets-scan-staged: ## Scan staged diff for secrets with gitleaks
+	@command -v $(GITLEAKS) >/dev/null 2>&1 || { echo "Missing required tool: $(GITLEAKS) — https://github.com/gitleaks/gitleaks#installing" >&2; exit 1; }
+	$(GITLEAKS) protect --staged --redact
 
 clean: ## Remove build + coverage artifacts
 	rm -rf dist coverage.out
