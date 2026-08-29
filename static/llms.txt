@@ -1,0 +1,58 @@
+# Felipe's Workshop
+
+> The workshop behind ffreis.com — experiments, build logs, repos, and reusable ML/AI/web patterns.
+
+This is the workshop layer behind Felipe Führ dos Reis's polished personal site: a public
+bench for ML systems, AI engineering, MLOps patterns, small web apps, and build logs.
+Polished work lives at ffreis.com — the sketches live here. The site itself is a single
+static page, hand-curated YAML rendered to HTML by a small Go generator — no framework.
+
+## Projects
+
+Cards live at https://workshop.ffreis.com/#projects. The underlying repos are currently
+private (no public links yet), so entries below describe rather than link:
+
+- **ffreis-website-compiler** (tooling/web/infra): the Go CLI that builds and validates
+  the whole static site fleet from a YAML site-data contract; this workshop is built by
+  a tiny sibling generator.
+- **ffreis-ml-\* platform** (ml/infra): a fleet of composable ML components —
+  explainability, fairness, drift monitoring, continual learning — each its own repo,
+  wired by path sources and exercised through end-to-end example pipelines.
+- **ffreis-token-vault** (infra/tooling): a Rust library for access and licensing
+  tokens — a crypto SPI over Biscuit, Shamir secret-sharing, and a phase-based
+  entitlements engine behind clean payment/plan/entitlement ports.
+- **ffreis-buildguard** (tooling/infra): a Go CLI that confines heavy Rust/Go/Python
+  builds inside systemd user cgroups so parallel builds can't OOM-freeze a swapless
+  desktop.
+- **Petlook experiments** (web/ml, prototype): static-first product UX for a pet app —
+  upload + moderation pipelines, icon generation, wardrobe panels, and a shared
+  Kotlin/Swift mobile contract kept in lockstep by a drift guard.
+- **Workshop canvas** (web/tooling, library): this site itself — a single static page
+  generated from hand-curated YAML, HTML + CSS first, with a sprinkle of JS for
+  filtering and copy. A template for the next small thing.
+
+## Build log
+
+Dated entries at https://workshop.ffreis.com/#build-log:
+
+- **2026-06-26 — Workshop shell live**: defined the split — ffreis.com is the front
+  door, this is the visible bench — and shipped it as a governed GitHub Pages repo
+  built by a small Go generator.
+- **Next — Wire real repo links + demos**: point each card at its public repo, add
+  screenshots and a one-line "what I learned" note per project.
+- **Later — Grow the patterns shelf**: turn recurring solutions — async event flows,
+  model packaging, agent workflows — into copyable notes.
+
+## Patterns
+
+Copyable snippets at https://workshop.ffreis.com/#patterns:
+
+- **Workshop positioning**: the ffreis.com / workshop.ffreis.com split, and the
+  "HTML + CSS first, add JavaScript only when a real interaction needs it" constraint.
+- **Edit this site (YAML-only)**: how to add a project card by editing
+  `data/projects.yaml` and running `make build`.
+
+## Optional
+
+- [ffreis.com](https://ffreis.com/en/): the polished personal site this workshop supports.
+- [GitHub — FelipeFuhr](https://github.com/FelipeFuhr): source profile.

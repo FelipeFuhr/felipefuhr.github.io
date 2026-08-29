@@ -1,0 +1,4 @@
+Contact: https://github.com/FelipeFuhr/felipefuhr.github.io/security/advisories/new
+Expires: 2027-08-29T00:00:00.000Z
+Canonical: https://workshop.ffreis.com/.well-known/security.txt
+Preferred-Languages: en

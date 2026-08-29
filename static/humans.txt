@@ -1,0 +1,24 @@
+/* TEAM */
+
+    Developer, Designer, Writer: Felipe Führ dos Reis
+    Role: ML Engineer / AI Systems Builder
+    Site: https://workshop.ffreis.com
+    Personal site: https://ffreis.com/en/
+    GitHub: https://github.com/FelipeFuhr
+
+    This is a solo-built, one-person site — no agency, no team.
+
+/* THANKS */
+
+    Everyone maintaining the open-source tools this site is built on:
+    Go, and the wider open web-standards community.
+
+/* SITE */
+
+    Language: English
+    Doctype: HTML5
+    Standards: HTML5, CSS3, semantic markup
+    Components: hand-written CSS (no framework), vanilla JavaScript (filter + copy only)
+    Software: a small Go generator (cmd/build + internal/site) — html/template,
+              content from hand-curated YAML in data/
+    Hosting: GitHub Pages
