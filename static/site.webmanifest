@@ -1,0 +1,10 @@
+{
+  "name": "Felipe's Workshop",
+  "short_name": "Workshop",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#0ecce2",
+  "background_color": "#0c1018",
+  "display": "standalone"
+}
