@@ -13,6 +13,24 @@
   <meta property="og:url" content="{{.Site.URL}}">
   <meta property="og:image" content="{{.Site.URL}}{{.Site.OGImage}}">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{.Site.Title}}",
+    "description": "{{.Site.Description}}",
+    "url": "{{.Site.URL}}",
+    "author": {
+      "@type": "Person",
+      "name": "{{.Site.Author}}",
+      "url": "https://ffreis.com/en/",
+      "sameAs": [
+        "https://github.com/FelipeFuhr",
+        "https://ffreis.com/en/"
+      ]
+    }
+  }
+  </script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
